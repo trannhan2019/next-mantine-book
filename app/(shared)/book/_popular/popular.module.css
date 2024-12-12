@@ -1,4 +1,12 @@
 .popularTitle {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 40px;
+  color: var(--mantine-color-black);
+  font-weight: 500;
+  padding-bottom: 20px;
+}
+
+.popularText {
+  font-size: 16px;
+  color: var(--mantine-color-black);
+  padding-bottom: 20px;
 }

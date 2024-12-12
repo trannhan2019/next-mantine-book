@@ -2,18 +2,18 @@
 
 import {
   Box,
+  Button,
   Container,
-  Stack,
-  Title,
+  Group,
+  Input,
   Text,
-  SimpleGrid,
-  Card,
-  Flex,
+  Title,
+  UnstyledButton,
 } from "@mantine/core";
-import styles from "./popular.module.css";
+import styles from "./book-list.module.css";
 import Link from "next/link";
 import { motion } from "motion/react";
-import Image from "next/image";
+import { IconSearch } from "@tabler/icons-react";
 
 const data = [
   {
@@ -96,64 +96,55 @@ const data = [
   },
 ];
 
-export default function Popular() {
+const bookCategories = [
+  "Khoa học",
+  "Kinh điển",
+  "Lịch sử Việt Nam",
+  "Văn học",
+  "Lịch sử Thế giới",
+  "Nhật Bản",
+  "Vật lý",
+  "Nghệ thuật",
+  "Tâm lý học",
+  "Thiếu nhi",
+  "Y học",
+  "Ngôn ngữ",
+  "Kinh tế",
+  "Âm nhạc",
+  "Y sinh",
+  "Giáo dục",
+  "Mẹ và bé",
+  "Quản trị",
+  "Cuộc sống",
+  "Ẩm thực",
+];
+
+export default function BookList() {
   return (
-    <Box component="section" py="xl">
+    <Box component="section" mt="xl">
       <Container size="xl">
-        <Stack align="center">
-          <Title order={2} className={styles.popularTitle}>
-            Popular Books
-          </Title>
-          <Text className={styles.popularText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
+        <div style={{ textAlign: "center" }}>
+          <Title order={1}>Sách mới phát hành</Title>
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. tellus
+            lacus faucibus lectus, sed cursused eros ligula non odio.
           </Text>
-        </Stack>
+        </div>
 
-        <SimpleGrid
-          cols={{ base: 1, sm: 2, md: 3, lg: 4 }}
-          spacing="lg"
-          verticalSpacing="lg"
-          mt="xl"
-        >
-          {data.map((item) => (
-            <Link
-              href={`/book/${item.id}`}
-              key={item.id}
-              style={{ textDecoration: "none" }}
-            >
-              <motion.div
-                initial={{ opacity: 0.2, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.0 }}
-                whileHover={{
-                  translateY: -10,
-                  boxShadow: "0 10px 10px 0 rgba(0, 0, 0, 0.5)",
-                  borderRadius: "10px",
-                }}
-              >
-                <Card shadow="sm" radius="md" withBorder>
-                  <Card.Section h={300} pos="relative">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      sizes="100vw 50vw"
-                      className="object-cover"
-                    />
-                  </Card.Section>
-
-                  <Flex mt="sm" h={90} direction="column">
-                    <Title order={5} lineClamp={2} className={styles.bookTitle}>
-                      {item.title}
-                    </Title>
-                    <Text>{item.author}</Text>
-                  </Flex>
-                </Card>
-              </motion.div>
-            </Link>
-          ))}
-        </SimpleGrid>
+        <div className={styles.bookList}>
+          <div className={styles.bookListFilter}>
+            <Box p={12}>
+              <Title order={2}>Search</Title>
+              <Group>
+                <Input placeholder="Search name or author ..." />
+                <Button variant="outline">
+                  <IconSearch size={16} />
+                </Button>
+              </Group>
+            </Box>
+          </div>
+          <div className={styles.bookListContent}></div>
+        </div>
       </Container>
     </Box>
   );

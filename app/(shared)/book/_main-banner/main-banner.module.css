@@ -28,20 +28,26 @@
   padding: 5px 12px;
   font-weight: 700;
   color: var(--mantine-color-white);
-  background-color: var(--mantine-color-green-5);
+  background-color: var(--mantine-color-green-7);
   border-radius: 4px;
   width: fit-content;
- 
 }
 
 .mainBannerHeading {
-  font-size: 55px;
-  font-weight: 700;
+  font-size: 70px;
+  font-weight: 400;
   color: var(--mantine-color-gray-9);
   margin-top: 20px;
   margin-bottom: 20px;
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: 50px;
+  }
 }
 
 .mainBannerHeadingSpan {
   color: var(--mantine-color-orange-6);
+  font-weight: 600;
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: 50px;
+  }
 }

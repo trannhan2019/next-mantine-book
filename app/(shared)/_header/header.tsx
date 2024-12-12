@@ -93,7 +93,7 @@ export default function Header() {
             )}
           </Box>
 
-          <Burger size="sm" hiddenFrom="sm" onClick={open} />
+          <Burger size="sm" hiddenFrom="sm" opened={opened} onClick={open} />
           {/* drawer */}
           <Drawer opened={opened} onClose={close} position="right" size="xs">
             <Stack>

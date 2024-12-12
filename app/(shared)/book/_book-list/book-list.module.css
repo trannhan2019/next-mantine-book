@@ -1,0 +1,16 @@
+.bookList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (min-width: $mantine-breakpoint-md) {
+    flex-direction: row;
+  }
+}
+
+.bookListFilter {
+  width: 300px;
+  @media (min-width: $mantine-breakpoint-sm) {
+    width: 100%;
+  }
+}
